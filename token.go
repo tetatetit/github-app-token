@@ -19,9 +19,9 @@ func main() {
         // issued at time
         IssuedAt:  now.Unix(),
         // JWT expiration time (10 minute maximum)
-		ExpiresAt: now.Add(10 * time.Minute).Unix(),
+	ExpiresAt: now.Add(10 * time.Minute).Unix(),
         // GitHub App's identifier
-        Issuer: "49009",
+        Issuer: os.Args[1],
 	}
     token, err := t.SignedString(key)
     fmt.Println(err)
